@@ -1,11 +1,15 @@
 import express from 'express'
+import cors from 'cors'
 import http from 'http'
-import { Server } from "socket.io"
+import {Server} from 'socket.io'
+
 
 const PORT = process.env.PORT || 3009
 const app = express();
 const server = http.createServer(app);
 const socket = new Server(server);
+
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send('Hello it\'s ws server');
