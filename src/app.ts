@@ -5,13 +5,13 @@ import { Server } from "socket.io"
 const PORT = process.env.PORT || 3009
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const socket = new Server(server);
 
 app.get('/', (req, res) => {
     res.send('Hello it\'s ws server');
 });
 
-io.on('connection', (socket) => {
+socket.on('connection', (connection) => {
     console.log('a user connected');
 });
 
