@@ -9,7 +9,11 @@ const app = express();
 const server = http.createServer(app);
 const socket = new Server(server);
 
-app.use(cors())
+let corsOptions = {
+    origin : ['http://localhost:3000'],
+}
+
+app.use(cors(corsOptions))
 
 app.get('/', (req, res) => {
     res.send('Hello it\'s ws server');
